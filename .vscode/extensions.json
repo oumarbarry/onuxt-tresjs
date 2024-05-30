@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "Vue.volar",
+    "antfu.file-nesting",
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.EditorConfig",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
