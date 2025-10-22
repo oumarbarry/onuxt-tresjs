@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { scene: model } = await useGLTF(
+const { scene: model } = useGLTF(
   "https://raw.githubusercontent.com/Tresjs/assets/main/models/gltf/blender-cube.glb",
   { draco: true },
 )
