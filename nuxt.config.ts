@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@nuxtjs/tailwindcss",
     "@tresjs/nuxt",
+    "@dxup/nuxt",
   ],
 
   eslint: { config: { standalone: false } },

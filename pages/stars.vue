@@ -1,0 +1,23 @@
+<script setup lang="ts">
+import { OrbitControls } from "@tresjs/cientos"
+</script>
+
+<template>
+  <TresCanvas clear-color="#333" window-size>
+    <TresPerspectiveCamera :position="[0, 2, 5]" :look-at="[0, 0, 0]" />
+
+    <BlenderCube />
+
+    <TresDirectionalLight :intensity="2" :position="[3, 3, 3]" />
+    <TresAmbientLight :intensity="1" />
+
+    <Superstar />
+
+    <DevOnly>
+      <!-- <TresAxesHelper /> -->
+      <!-- <TresGridHelper :args="[4, 4]" /> -->
+    </DevOnly>
+
+    <OrbitControls />
+  </TresCanvas>
+</template>

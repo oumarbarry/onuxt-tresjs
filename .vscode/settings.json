@@ -39,5 +39,12 @@
     "scss",
     "pcss",
     "postcss"
-  ]
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
