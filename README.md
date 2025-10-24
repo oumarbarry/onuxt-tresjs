@@ -1,5 +1,9 @@
 # onuxt-tresjs
 
+- Nuxt 4
+- Tres 5
+- TypeScript
+
 ## Usage
 
 ### GitHub Template

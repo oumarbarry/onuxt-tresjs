@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useGLTF } from "@tresjs/cientos"
+import { dispose } from "@tresjs/core"
 
 const { nodes } = useGLTF(
   "https://raw.githubusercontent.com/Tresjs/assets/main/models/gltf/blender-cube.glb",
@@ -9,7 +10,7 @@ const { nodes } = useGLTF(
 const model = computed(() => nodes.value.BlenderCube)
 
 onUnmounted(() => {
-  dispose(model)
+  dispose(model.value)
 })
 </script>
 

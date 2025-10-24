@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { OrbitControls } from "@tresjs/cientos"
+
+definePageMeta({ alias: ["/"] })
 </script>
 
 <template>
   <TresCanvas clear-color="#333" window-size>
     <TresPerspectiveCamera :position="[0, 2, 5]" :look-at="[0, 0, 0]" />
+    <OrbitControls />
 
     <BlenderCube />
 
@@ -13,11 +16,9 @@ import { OrbitControls } from "@tresjs/cientos"
 
     <Superstar />
 
-    <DevOnly>
-      <!-- <TresAxesHelper /> -->
-      <!-- <TresGridHelper :args="[4, 4]" /> -->
-    </DevOnly>
-
-    <OrbitControls />
+    <!-- <DevOnly>
+      <TresAxesHelper />
+      <TresGridHelper :args="[4, 4]" />
+    </DevOnly> -->
   </TresCanvas>
 </template>
