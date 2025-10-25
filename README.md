@@ -3,6 +3,8 @@
 - Nuxt 4
 - Tres 5
 - TypeScript
+- Eslint
+- SSR ready
 
 ## Usage
 
@@ -17,6 +19,13 @@ Use [giget](https://github.com/unjs/giget) to clone to your machine with an empt
 ```bash
 bunx giget@latest gh:oumarbarry/onuxt-tresjs nuxt-app --install --shell
 ```
+
+## Learn More
+
+- [TresJS Documentation](https://tresjs.org)
+- [TresJS Nuxt Module](https://github.com/tresjs/nuxt)
+- [Nuxt 3 Documentation](https://nuxt.com/docs/getting-started/introduction)
+- [Three.js Documentation](https://threejs.org/docs/)
 
 ## Contribution
 

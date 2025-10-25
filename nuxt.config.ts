@@ -3,13 +3,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
-    "@nuxt/eslint",
-    "@nuxtjs/tailwindcss",
-    "@tresjs/nuxt",
     "@dxup/nuxt",
+    "@nuxt/eslint",
+    "@tresjs/nuxt",
+    "@nuxtjs/tailwindcss",
   ],
 
   eslint: { config: { standalone: false } },
-
-  tres: { devtools: true },
 })

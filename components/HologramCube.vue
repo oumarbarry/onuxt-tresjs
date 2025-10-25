@@ -1,15 +1,33 @@
 <script setup lang="ts">
 import { useGLTF } from "@tresjs/cientos"
-import { add, cameraProjectionMatrix, cameraViewMatrix, color, Fn, hash, mix, normalView, positionWorld, sin, timerGlobal, uniform, varying, vec3, vec4 } from "three/tsl"
+import { isMesh } from "@tresjs/core"
+import {
+  add,
+  cameraProjectionMatrix,
+  cameraViewMatrix,
+  color,
+  float,
+  Fn,
+  hash,
+  mix,
+  normalView,
+  positionWorld,
+  sin,
+  time,
+  uniform,
+  varying,
+  vec3,
+  vec4,
+} from "three/tsl"
 import { AdditiveBlending, DoubleSide, MeshBasicNodeMaterial } from "three/webgpu"
 
-const { nodes } = useGLTF("https://raw.githubusercontent.com/Tresjs/assets/main/models/gltf/blender-cube.glb", { draco: true })
+const modelPath = "https://raw.githubusercontent.com/Tresjs/assets/main/models/gltf/blender-cube.glb"
+
+const { nodes } = useGLTF(modelPath, { draco: true })
 
 const model = computed(() => nodes.value.BlenderCube)
 
-/**
- * Material
- */
+// Material
 const material = new MeshBasicNodeMaterial({
   transparent: true,
   side: DoubleSide,
@@ -18,9 +36,9 @@ const material = new MeshBasicNodeMaterial({
 })
 
 // Position
-const glitchStrength = varying(0)
+const glitchStrength = varying(float(0))
 material.vertexNode = Fn(() => {
-  const glitchTime = timerGlobal().sub(positionWorld.y.mul(0.5))
+  const glitchTime = time.sub(positionWorld.y.mul(0.5))
   glitchStrength.assign(add(
     sin(glitchTime),
     sin(glitchTime.mul(3.45)),
@@ -34,11 +52,12 @@ material.vertexNode = Fn(() => {
   positionWorld.xyz.addAssign(glitch.mul(glitchStrength.mul(0.5)))
   return cameraProjectionMatrix.mul(cameraViewMatrix).mul(positionWorld)
 })()
+
 // Color
 const colorInside = uniform(color("#ff6088"))
 const colorOutside = uniform(color("#4d55ff"))
 material.colorNode = Fn(() => {
-  const stripes = positionWorld.y.sub(timerGlobal(0.02)).mul(20).mod(1).pow(3)
+  const stripes = positionWorld.y.sub(time.mul(0.02)).mul(20).mod(1).pow(3)
   const fresnel = normalView.dot(vec3(0, 0, 1)).abs().oneMinus()
   const falloff = fresnel.smoothstep(0.8, 0.2)
   const alpha = stripes.mul(fresnel).add(fresnel.mul(1.25)).mul(falloff)
@@ -47,7 +66,7 @@ material.colorNode = Fn(() => {
 })()
 
 watch(model, (newModel) => {
-  newModel.traverse((child) => {
+  newModel.traverse((child: any) => {
     if (isMesh(child)) {
       child.material = material
     }

@@ -5,7 +5,7 @@ definePageMeta({ alias: ["/"] })
 </script>
 
 <template>
-  <TresCanvas clear-color="#333" window-size>
+  <TresCanvas window-size>
     <TresPerspectiveCamera :position="[0, 2, 5]" :look-at="[0, 0, 0]" />
     <OrbitControls />
 
@@ -16,9 +16,9 @@ definePageMeta({ alias: ["/"] })
 
     <Superstar />
 
-    <!-- <DevOnly>
-      <TresAxesHelper />
+    <DevOnly>
       <TresGridHelper :args="[4, 4]" />
-    </DevOnly> -->
+      <!-- <TresAxesHelper :args="[5]" /> -->
+    </DevOnly>
   </TresCanvas>
 </template>

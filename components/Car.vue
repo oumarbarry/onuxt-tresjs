@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useFBX } from "@tresjs/cientos"
 
-const path = "https://raw.githubusercontent.com/Tresjs/assets/main/models/fbx/low-poly-truck/Jeep_done.fbx"
-const { state } = useFBX(path)
+const modelPath = "https://raw.githubusercontent.com/Tresjs/assets/main/models/fbx/low-poly-truck/Jeep_done.fbx"
+const { state: model } = useFBX(modelPath)
 </script>
 
 <template>
-  <primitive v-if="state" :object="state" :scale="0.025" />
+  <primitive v-if="model" :object="model" :scale="0.015" />
 </template>
