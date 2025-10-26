@@ -24,7 +24,6 @@ bunx giget@latest gh:oumarbarry/onuxt-tresjs nuxt-app --install --shell
 
 - [TresJS Documentation](https://tresjs.org)
 - [TresJS Nuxt Module](https://github.com/tresjs/nuxt)
-- [Nuxt 3 Documentation](https://nuxt.com/docs/getting-started/introduction)
 - [Three.js Documentation](https://threejs.org/docs/)
 
 ## Contribution
